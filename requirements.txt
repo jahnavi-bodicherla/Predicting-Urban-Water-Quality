@@ -1,0 +1,23 @@
+# Verified on Python 3.12 (CPython 3.12.x)
+# Install with:  pip install -r requirements.txt
+
+# Web framework. 4.2 LTS is the last release that still accepts this project's
+# older settings keys, and it supports Python 3.12.
+Django==4.2.16
+
+# Machine-learning stack used by train_model / Predict_Water_Quality
+pandas==3.0.5
+scikit-learn==1.9.0
+numpy==2.5.2
+scipy==1.18.1
+
+# "Download Trained Data Sets" writes a .xls with this
+xlwt==1.3.0
+
+# Imported at the top of Service_Provider/views.py. It pulls in matplotlib and
+# pillow, so it is a chunky install for what the code actually uses, but the
+# import has to resolve or the Service Provider pages will not load.
+wordcloud==1.9.6
+
+# NOTE: no MySQL driver here. The project now runs on SQLite, which is built
+# into Python, so WampServer / MySQL is no longer needed.

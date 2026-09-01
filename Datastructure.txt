@@ -1,0 +1,39 @@
+Predicting Urban Water Quality With Ubiquitous Data - A Data Driven Approach
+
+
+Urban computing; data mining; urban water quality prediction; multi-view learning; multi-task learning; big data.
+
+
+
+
+
+IEEE Transactions on Big Data and Machine Learning,Volume:8,Issue:2,Issue Date:01.April.2022
+
+Salinity
+Fluoride
+Iron
+Nitrate
+Arsenic --Polluted
+
+
+Predicting_Urban_Water_Quality
+
+
+
+predicting_urban_water_quality
+
+
+water_quality_type
+
+
+State_Name
+District_Name
+Block_Name
+Panchayat_Name
+Village_Name
+Habitation_Name
+Year
+Prediction
+
+
+	    

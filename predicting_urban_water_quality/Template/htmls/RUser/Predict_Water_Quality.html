@@ -1,0 +1,107 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+
+/* Layout, palette and table styling are inherited from the page Header
+   template. Nothing page-specific is needed here. */
+
+		</style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                   <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">PREDICTION OF WATER QUALTY TYPE !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7"><br>
+                                    Enter</span> <span class="style7">State Name</span></strong></div></td>
+                                    <td><input name="State_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7">Enter</span> <span class="style7">District Name</span></strong></div></td>
+                                    <td><input name="District_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7">Enter</span> <span class="style7">Block Name</span></strong></div></td>
+                                    <td><input name="Block_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7">Enter</span> <span class="style7">Panchayat Name</span></strong></div></td>
+                                    <td><input name="Panchayat_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7">Enter</span> <span class="style7">Village Name</span></strong></div></td>
+                                    <td><input name="Village_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center"><strong><span class="style7">Enter</span> <span class="style7">Habitation Name</span></strong></div></td>
+                                    <td><input name="Habitation_Name" type="text" value="" size="40"></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center"><span class="style4 style2">Enter Year</span></div></td>
+                                    <td width="269"><input name="Year" type="text" value="" size="40"></td>
+                                  </tr>
+  <td><p>&nbsp; </p>
+          <p>
+            <input name="submit" type="submit" class="style1" value="Predict">
+        </p></td>
+  </tr>
+                                </table>
+					 </fieldset>
+				  </form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+
+                            <hr>
+                           
+                               <table width="802" border="5" align="center" bordercolor="#FF00FF">
+                             <tr><td width="431" bgcolor="#0000FF"><div align="center"><span class="style8 style6">PREDICTED WATER QUALITY TYPE</span></div></td>
+
+<td width="347" height="68" bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center"><strong>{{objs}}</strong></div></td>
+
+                        </tr>
+
+
+                      </table>
+
+
+                           
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

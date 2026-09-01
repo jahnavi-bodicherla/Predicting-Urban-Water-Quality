@@ -1,0 +1,122 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+
+/* ---------- chart pages ----------------------------------- */
+.topic{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.2rem;
+  align-items:flex-start;
+  max-width:1220px;
+  margin:0 auto;
+  padding:1rem 1.5rem 3rem;
+}
+.sidemenu{
+  flex:0 0 180px;
+  margin:0 !important;
+  display:flex;
+  flex-direction:column;
+}
+.sidemenu br{display:none;}
+.sidemenu h3{
+  margin:0 !important;
+  padding:0 !important;
+  color:inherit !important;
+  font-size:0;
+}
+.sidemenu h3:empty{display:none;}
+.sidemenu h3 a{
+  display:block;
+  margin-bottom:.5rem;
+  padding:.55rem .9rem;
+  font-family:var(--body);
+  font-size:.85rem;
+  font-weight:500;
+  text-align:center;
+  color:#cfe7ec;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(139,196,208,.28);
+  border-radius:999px;
+  transition:background .18s ease,color .18s ease;
+}
+.sidemenu h3 a:hover{background:var(--current);color:#fff;text-decoration:none;}
+.sidemenu h3 a:empty{display:none;}
+
+/* the original rule pinned this to a fixed 1180px offset canvas */
+#chartContainer,.graph{
+  position:static !important;
+  width:auto !important;
+  margin:0 !important;
+  flex:1 1 420px;
+  min-width:0;
+  height:470px;
+  background:var(--paper);
+  border-radius:14px;
+  border-top:3px solid var(--current);
+  box-shadow:var(--shadow);
+  padding:1rem;
+}
+
+@media (max-width:820px){
+  .sidemenu{flex:1 1 100%;flex-direction:row;flex-wrap:wrap;}
+  .sidemenu h3 a{margin-bottom:0;}
+  #chartContainer,.graph{height:360px;flex:1 1 100%;}
+}
+
+		</style>
+
+
+<script >
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: ""
+	},
+	data: [{
+	{% if chart_type == "line" %}
+		type: "line",
+	{% elif chart_type == "pie" %}
+		type: "pie",
+	{% elif chart_type == "spline" %}
+		type: "spline",
+	{% endif %}
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+		{% for o in form %}
+			{y: {{o.dcount}}, label: "{{o.names}}"},
+		{% endfor %}
+		]
+	}]
+});
+chart.render();
+
+}
+
+</script>
+<body>
+<br>
+<div class="topic">
+
+
+
+<div class="sidemenu">
+    <h3 style="color:black;margin-left:60px;margin-top:80px"><a href="{% url 'charts' 'pie' %}" >PIE CHAERT<br>
+        <br>
+        <br>
+        <br>
+      <br>
+     </a><a href="{% url 'charts' 'line' %}">LINE CHART</a></h3>
+    <h3 style="color:white;margin-left:60px;margin-top:100px;"><a href="{% url 'charts' 'spline' %}"></a></h3>
+</div>
+<div id="chartContainer" class="graph"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
+
+</body>
+{% endblock %}

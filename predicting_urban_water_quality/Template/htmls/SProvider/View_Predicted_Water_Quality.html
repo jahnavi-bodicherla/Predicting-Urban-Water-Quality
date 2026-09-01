@@ -1,0 +1,77 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+
+/* Layout, palette and table styling are inherited from the page Header
+   template. Nothing page-specific is needed here. */
+
+		</style>
+
+	<body>
+	<div class="container-fluid">
+		<div>
+<div class="container-fluid">
+		<div class="container">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">View Water Quality Prediction Details  !!! </p>
+                            <hr>
+                            <div >
+                               <table border="5" bordercolor="#FF00FF">
+                             <tr>
+
+                               <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">State_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">District_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Block_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Panchayat_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Village_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Habitation_Name</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Year</span></div></td>
+                                <td bgcolor="#FF0000"><div align="center" class="style10"><span class="style8 style6">Prediction</span></div></td>
+
+                      </tr>
+                            {% for object in list_objects %}
+                      <tr>
+
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.State_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.District_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Block_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Panchayat_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Village_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Habitation_Name}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Year}}</div></td>
+                            <td bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{object.Prediction}}</div></td>
+
+                        </tr>
+
+                                        {% endfor %}
+                      </table>
+
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>
